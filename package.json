@@ -1,0 +1,36 @@
+{
+  "name": "srv-build",
+  "version": "1.0.0",
+  "description": "CLI constructor of server with node and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsx watch src/app.ts",
+    "build": "tsc",
+    "start": "node dist/src/app.js",
+    "check:prettier": "npx prettier . --check",
+    "write:prettier": "npx prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasPaulo001/srv-build.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/LucasPaulo001/srv-build/issues"
+  },
+  "homepage": "https://github.com/LucasPaulo001/srv-build#readme",
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}
