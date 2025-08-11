@@ -8,16 +8,20 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+//Rotas
+import router from "./routes/routes.js";
+
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
 
+app.use(router);
 
 //Iniciando o servidor
 const PORT = process.env.PORT;
-app.listen(PORT, () => {
-    console.log('Conectado ao servidor...');
+app.listen(PORT || 8080, () => {
+    console.log('Conectado ao servidor na porta:', PORT);
 });
 `
         const filePath = path.join(process.cwd(), `index.${archiveType}`);
