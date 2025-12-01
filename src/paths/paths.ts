@@ -4,9 +4,9 @@ import { index } from "../content/index.js";
 import { contentEnv } from "../content/env.js";
 import { generateArchive } from "../content/generateArchive.js";
 import { generateRouter } from "../content/routesContent.js";
-import { generateConfigMail } from "../content/adittionalFiles.js";
+import { jwtDefault } from "../content/jwtGenerate.js";
 
-export const generate = (pathName: string[], variant: string) => {
+export const generate = (pathName: string[], variant: symbol | "js" | "ts") => {
   try {
     const baseDir = process.cwd();
 
@@ -28,13 +28,13 @@ export const generate = (pathName: string[], variant: string) => {
       fs.mkdirSync(folderPath, { recursive: true });
 
       if (folder === "routes") {
-        const fileRoute = path.join(folderPath, `routes.${variant}`);
-        generateArchive(fileRoute, generateRouter(variant));
+        const fileRoute = path.join(folderPath, `routes.${String(variant)}`);
+        generateArchive(fileRoute, generateRouter(String(variant)));
       }
 
-      if (folder === "services") {
-        const fileService = path.join(folderPath, `sendMail.${variant}`);
-        generateArchive(fileService, generateConfigMail(variant));
+      if (folder === "middlewares") {
+        const fileJWT = path.join(folderPath, `jwt.${String(variant)}`);
+        generateArchive(fileJWT, jwtDefault(variant, true));
       }
     }
   } catch (err) {

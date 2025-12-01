@@ -7,6 +7,7 @@ import {
   select,
   text,
   spinner,
+  confirm,
 } from '@clack/prompts';
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -14,6 +15,7 @@ import path from 'node:path';
 import { gitignore } from './content/gitignore.js';
 import { generate } from './paths/paths.js';
 import { additionalFiles } from './content/adittionalFiles.js';
+import { jwtDefault } from './content/jwtGenerate.js';
 
 async function main() {
   intro('Criação de aplicação Node.Js 🚀');
@@ -100,12 +102,12 @@ async function main() {
   s.stop('Projeto inicializado');
 
   // Inicialização comum (sempre acontecerá)
-  execSync(`npm install dotenv express nodemailer express-validator`);
+  execSync(`npm install dotenv express jsonwebtoken cors`, { stdio: "ignore"});
 
   //Para ts
   if (projectVariant === 'ts') {
-    execSync(`npm install typescript @types/node @types/express @types/nodemailer --save-dev`, { stdio: "inherit"});
-    execSync(`npx tsc --init`, { stdio: "inherit" });
+    execSync(`npm install typescript @types/node @types/jsonwebtoken @types/express @types/cors @types/nodemailer --save-dev`, { stdio: "ignore"});
+    execSync(`npx tsc --init`, { stdio: "ignore" });
   }
 
   //Instalando ferramentas
@@ -120,7 +122,7 @@ async function main() {
     //Criando pastas do código fonte
   generate(
     ['models', 'controllers', 'middlewares', 'services', 'routes'],
-    String(projectVariant),
+    projectVariant,
   );
 
   outro(`Tudo pronto ✅`);
