@@ -1,5 +1,3 @@
-
-
 export const gitignore = `
 # Node.js
 node_modules/
@@ -38,4 +36,4 @@ coverage/
 
 # Outros
 .idea/
-`
+`;

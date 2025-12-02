@@ -1,9 +1,9 @@
-import path from "path";
-import fs from "node:fs";
+import path from 'path';
+import fs from 'node:fs';
 
 export const index = async (archiveType: string) => {
-    try{
-        const server = `
+  try {
+    const server = `
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -25,11 +25,10 @@ const PORT = process.env.PORT;
 app.listen(PORT || 8080, () => {
     console.log('Conectado ao servidor na porta:', PORT);
 });
-`
-        const filePath = path.join(process.cwd(), `index.${archiveType}`);
-        fs.writeFileSync(filePath, server, "utf8");
-    }
-    catch(err){
-        console.error(err);
-    }
-}
+`;
+    const filePath = path.join(process.cwd(), `index.${archiveType}`);
+    fs.writeFileSync(filePath, server, 'utf8');
+  } catch (err) {
+    console.error(err);
+  }
+};
