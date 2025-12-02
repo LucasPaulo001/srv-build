@@ -1,5 +1,10 @@
 # srv-build
 
+> Comando para instalação
+```bash
+  npm i -g srv-build
+```
+
 ## Gerador de Estrutura de Projeto CLI
 
 Esta aplicação CLI automatiza a criação da estrutura inicial de um projeto backend em Node.js, com suporte para TypeScript (.ts) ou JavaScript (.js). Ela cria pastas padrão, arquivos essenciais (ex: .env, rotas, serviços de e-mail) e facilita o setup inicial do projeto.
