@@ -1,8 +1,10 @@
+import { intro } from "@clack/prompts";
 import { execSync } from "child_process";
 import fs from "fs";
 
 export function initNpm(npmInit: string) {
-  execSync(`npm ${npmInit}`, { stdio: "ignore" });
+  intro("Preencha os campos - Package.json");
+  execSync(`npm ${npmInit}`, { stdio: "inherit" });
 }
 
 export function forceModuleType() {
