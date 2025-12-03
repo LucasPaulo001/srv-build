@@ -1,6 +1,6 @@
 {
   "name": "srv-build",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI constructor of server with node and express",
   "main": "index.js",
   "bin": {
@@ -31,7 +31,8 @@
   "homepage": "https://github.com/LucasPaulo001/srv-build#readme",
   "dependencies": {
     "@clack/prompts": "^0.11.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mongoose": "^9.0.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
