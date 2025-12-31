@@ -69,6 +69,14 @@ export async function createProject() {
     required: false,
   });
 
+  const projectArchiteture = await select({
+    message: "Qual arquitetura usar?",
+    options: [
+      { value: "mvc", label: "MVC" },
+      { value: "modules", label: "modules" }
+    ]
+  })
+
   // Criando pasta raiz
   createProjectFolder(String(projectName));
 
@@ -118,8 +126,13 @@ export async function createProject() {
     installAdditionalTools(additionalTools as string[]);
   }
 
+  const entitiesInput = await text({
+    message: "Entidades iniciais (ex: user,auth,post)",
+    defaultValue: "user"
+  });
+
   // Criar src, controllers, routes, dbConnect etc.
-  generateProjectStructure(projectVariant, dbSetup, selectedORM);
+  generateProjectStructure(projectVariant, dbSetup, selectedORM, projectArchiteture, entitiesInput);
 
 
 
