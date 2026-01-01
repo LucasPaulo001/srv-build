@@ -2,7 +2,7 @@
 
 > Comando para instalação
 ```bash
-  npm i -g srv-build
+  npm i -g srv-build-core
 ```
 
 > Após instalar, rode no terminal dentro da pasta do projeto
