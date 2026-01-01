@@ -126,13 +126,17 @@ export async function createProject() {
     installAdditionalTools(additionalTools as string[]);
   }
 
-  const entitiesInput = await text({
-    message: "Entidades iniciais (ex: user,auth,post)",
-    defaultValue: "user"
-  });
+  let entitiesInput
+  if (projectArchiteture === "modules") {
+    entitiesInput = await text({
+      message: "Entidades iniciais (ex: user,auth,post)",
+      defaultValue: "user"
+    });
+  }
+
 
   // Criar src, controllers, routes, dbConnect etc.
-  generateProjectStructure(projectVariant, dbSetup, selectedORM, projectArchiteture, entitiesInput);
+  generateProjectStructure(projectVariant, dbSetup, selectedORM, projectArchiteture, entitiesInput!);
 
 
 

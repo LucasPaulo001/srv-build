@@ -14,7 +14,7 @@ export async function generate(
   variant: symbol | "js" | "ts",
   dbSetup: symbol | "mongodb" | "postgresql" | "supabase" | "none",
   orm: ORM,
-  projectArchiteture: symbol | "mvc" | "modules",
+  projectArchiteture: symbol | "mvc" | "modules" | undefined,
   entitiesInput: string | symbol,
 ) {
   try {
